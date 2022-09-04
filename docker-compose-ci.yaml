@@ -3,7 +3,7 @@ services:
 
   # nginx service
   web:
-    container_name: web
+    container_name: "web"
     image: nginx:alpine
     depends_on:
       - app
@@ -16,7 +16,7 @@ services:
 
   # application service
   app:
-    container_name: app
+    container_name: "app"
     image: app
     environment:
       - MONGODB_URL=mongodb://mongo_db/test_database
@@ -27,6 +27,8 @@ services:
       - "8000:8000"
     networks:
       - custom
+    depends_on:
+      - mongo_db
 
   # database service
   mongo_db:
