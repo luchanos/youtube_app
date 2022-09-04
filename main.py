@@ -7,7 +7,7 @@ from fastapi.routing import APIRoute
 from starlette.requests import Request
 
 env = Env()
-MONGODB_URL = env.str("MONGODB_URL", default="mongodb://mongo_db/test_database")
+MONGODB_URL = env.str("MONGODB_URL", default="mongodb://0.0.0.0@localhost:27017/test_database")
 
 
 async def ping() -> dict:
